@@ -31,7 +31,23 @@ html {
     background-color: var(--Neutral-200);
 }
 
+html, body {
+    height: 100%;
+}
 
+@media(min-width: 375px) {
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+}
+
+@media(min-width: 1024px) {
+    .app-container {
+        width: 80%;
+    }
+}
 
 header > div {
     width: auto;
@@ -56,4 +72,32 @@ header > div > img {
     width: 2rem;
     margin-right: 5px;
 
+}
+
+.extension-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-btn-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.filter-btn {
+    border: 2px solid var(--Neutral-300);
+    background-color: var(--Neutral-0);
+    border-radius: 30px;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+}
+
+@media(min-width: 1024px) {
+    .extension-list {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
