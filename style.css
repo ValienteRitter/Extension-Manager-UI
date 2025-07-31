@@ -101,3 +101,8 @@ header > div > img {
         justify-content: space-between;
     }
 }
+
+.extension-container {
+    display: flex;
+    flex-direction: column;
+}
