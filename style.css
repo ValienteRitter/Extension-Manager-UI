@@ -105,4 +105,26 @@ header > div > img {
 .extension-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.extension-item {
+    background-color: var(--Neutral-0);
+    padding: 1rem;
+    border: 1px solid var(--Neutral-300);
+    border-radius: 30px;
+}
+
+.extension-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.remove-btn {
+    background-color: var(--Neutral-0);
+    border: 1px solid var(--Neutral-300);
+    border-radius: 30px;
+    padding: 10px;
 }
