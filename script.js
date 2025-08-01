@@ -87,7 +87,9 @@ extensions.forEach(({logo, name, description, isActive}) => {
             </div>
             <div class="extension-btn-container">
                 <button class="remove-btn">Remove</button>
-                <button></button>
+                <button class="activate-toggle">
+                    <div class="circle"></div>
+                </button>
             </div>
         </div>` 
         
