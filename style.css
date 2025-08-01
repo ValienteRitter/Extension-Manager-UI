@@ -117,10 +117,38 @@ header > div > img {
 }
 
 .extension-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: var(--Neutral-0);
     padding: 1rem;
     border: 1px solid var(--Neutral-300);
     border-radius: 30px;
+    gap: 10px;
+}
+
+.extension-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.extension-info > img {
+    margin-top: 7px;
+}
+
+.extension-info-text {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.extension-info-text > h1,
+.extension-info-text > p {
+    margin: 0;
 }
 
 .extension-btn-container {
