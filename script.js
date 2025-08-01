@@ -75,6 +75,12 @@ let extensions = [
 // let remainingExtensions = [...extensions]
 const extensionContainer = document.querySelector('.extension-container');
 const filterButtons = document.querySelectorAll('.filter-btn');
+let extensionItems
+
+let selectedFilter = 'all'
+
+
+// let filteredExtensions
 
 
 
@@ -116,6 +122,8 @@ function updateExtensionContainerHTML(extensions) {
     })
     setDeleteButtonEventListener(extensions)
     setToggleEventListener(extensions)
+    extensionItems = document.querySelectorAll('.extension-item')
+    filterExtensions()
 }
 
 
@@ -147,70 +155,69 @@ updateExtensionContainerHTML(extensions)
 // setToggleEventListener(extensions)
 // setDeleteButtonEventListener(extensions)
 
-function filterExtensions(e) {
-    
+function setFilter(e) {
     filterButtons.forEach(filterButton => filterButton.classList.remove('highlight'))
     e.target.classList.add('highlight')
-    extensionContainer.innerHTML = ''
-    let filteredExtensions = extensions
-    switch(e.target.value) {
-        case 'all':
-            filteredExtensions = extensions
-            break
-        case 'active':
-            filteredExtensions = extensions.filter(({isActive}) => isActive === true)
-            break
-        case 'inactive':
-            filteredExtensions = extensions.filter(({isActive}) => isActive === false)
-            break
-    }
-    updateExtensionContainerHTML(filteredExtensions)
+    selectedFilter = e.target.value
+}
 
-    // filteredExtensions.forEach(({logo, name, description, isActive}) => {
-    //     extensionContainer.innerHTML += isActive 
-    //         ?    `<div class="extension-item">
-    //                 <div class="extension-info">
-    //                     <img src="${logo}" alt="">
-    //                     <div class="extension-info-text">
-    //                         <h1>${name}</h1>
-    //                         <p>${description}</p>
-    //                     </div>
-    //                 </div>
-    //                 <div class="extension-btn-container">
-    //                     <button class="remove-btn">Remove</button>
-    //                     <button class="activate-toggle active">
-    //                         <div class="circle"></div>
-    //                     </button>
-    //                 </div>
-    //             </div>`
-    //         :    `<div class="extension-item">
-    //                 <div class="extension-info">
-    //                     <img src="${logo}" alt="">
-    //                     <div class="extension-info-text">
-    //                         <h1>${name}</h1>
-    //                         <p>${description}</p>
-    //                     </div>
-    //                 </div>
-    //                 <div class="extension-btn-container">
-    //                     <button class="remove-btn">Remove</button>
-    //                     <button class="activate-toggle">
-    //                         <div class="circle"></div>
-    //                     </button>
-    //                 </div>
-    //             </div>`
-            
-    // })
-    // setToggleEventListener(filteredExtensions)
-    // setDeleteButtonEventListener(filteredExtensions)
+function filterExtensions() {
+    
+    // filterButtons.forEach(filterButton => filterButton.classList.remove('highlight'))
+    // e.target.classList.add('highlight')
+    // extensionContainer.innerHTML = ''
+    // filteredExtensions = extensions
+    extensionItems.forEach(extensionItem => {
+        switch(selectedFilter) {
+            case 'all':
+                extensionItem.style.display = 'flex'
+                break
+            case 'active':
+                if(extensionItem.lastElementChild.lastElementChild.classList.contains('active')) {
+                    extensionItem.style.display = 'flex'
+                }
+                else {
+                    extensionItem.style.display = 'none'
+                }
+                break
+            case 'inactive':
+                if(extensionItem.lastElementChild.lastElementChild.classList.contains('active')) {
+                    extensionItem.style.display = 'none'
+                }
+                else {
+                    extensionItem.style.display = 'flex'
+                }
+                break
+
+    }
+    });
+
+    // switch(e.target.value) {
+    //     case 'all':
+    //         filteredExtensions = extensions
+    //         break
+    //     case 'active':
+    //         filteredExtensions = extensions.filter(({isActive}) => isActive === true)
+    //         break
+    //     case 'inactive':
+    //         filteredExtensions = extensions.filter(({isActive}) => isActive === false)
+    //         break
+    // }
+
+    // updateExtensionContainerHTML(filteredExtensions)
+
+
 
 }
 
-// function removeExtension(e) {
-//     e.target
-// }
 
 
-filterButtons.forEach(filterButton => filterButton.addEventListener('click', filterExtensions))
+
+filterButtons.forEach(filterButton => {
+    filterButton.addEventListener('click', setFilter)
+    filterButton.addEventListener('click', filterExtensions)
+})
+
 document.addEventListener('click', () => {
     console.log(extensions);
 })
