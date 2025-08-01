@@ -78,11 +78,17 @@ const extensionContainer = document.querySelector('.extension-container');
 extensions.forEach(({logo, name, description, isActive}) => {
     extensionContainer.innerHTML +=
         `<div class="extension-item">
-            <h1>${name}</h1>
-            <p>${description}</p>
+            <div class="extension-info">
+                <img src="${logo}" alt="">
+                <div class="extension-info-text">
+                    <h1>${name}</h1>
+                    <p>${description}</p>
+                </div>
+            </div>
             <div class="extension-btn-container">
                 <button class="remove-btn">Remove</button>
                 <button></button>
+            </div>
         </div>` 
         
 })
@@ -90,10 +96,18 @@ extensions.forEach(({logo, name, description, isActive}) => {
 
 
 `<div class="extension-item">
-    <h1>DevLens</h1>
-    <p>Quickly inspect page layouts and visualize element boundaries</p>
+    <div class="extension-info">
+        <img src="assets/images/logo-devlens.svg" alt="">
+        <div class="extension-info-text">
+            <h1>DevLens</h1>
+            <p>Quickly inspect page layouts and visualize element boundaries</p>
+        </div>
+    </div>
     <div class="extension-btn-container">
         <button class="remove-btn">Remove</button>
         <button></button>
+    </div>
 </div>`
+
+
 
