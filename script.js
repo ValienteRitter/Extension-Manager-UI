@@ -72,16 +72,11 @@ let extensions = [
         "isActive": true
     }
 ]
-// let remainingExtensions = [...extensions]
 const extensionContainer = document.querySelector('.extension-container');
 const filterButtons = document.querySelectorAll('.filter-btn');
 let extensionItems
 
 let selectedFilter = 'all'
-
-
-// let filteredExtensions
-
 
 
 function updateExtensionContainerHTML(extensions) {
@@ -136,7 +131,6 @@ function setToggleEventListener(extensions) {
     activateToggles.forEach(((toggle, index) => toggle.addEventListener('click', () => {
         toggle.classList.toggle('active')
         extensions[index].isActive = !extensions[index].isActive
-        console.log(extensions[index])
     })))
 }
 
@@ -152,8 +146,7 @@ function setDeleteButtonEventListener(extensions) {
 
 
 updateExtensionContainerHTML(extensions)
-// setToggleEventListener(extensions)
-// setDeleteButtonEventListener(extensions)
+
 
 function setFilter(e) {
     filterButtons.forEach(filterButton => filterButton.classList.remove('highlight'))
@@ -163,10 +156,6 @@ function setFilter(e) {
 
 function filterExtensions() {
     
-    // filterButtons.forEach(filterButton => filterButton.classList.remove('highlight'))
-    // e.target.classList.add('highlight')
-    // extensionContainer.innerHTML = ''
-    // filteredExtensions = extensions
     extensionItems.forEach(extensionItem => {
         switch(selectedFilter) {
             case 'all':
@@ -192,22 +181,6 @@ function filterExtensions() {
     }
     });
 
-    // switch(e.target.value) {
-    //     case 'all':
-    //         filteredExtensions = extensions
-    //         break
-    //     case 'active':
-    //         filteredExtensions = extensions.filter(({isActive}) => isActive === true)
-    //         break
-    //     case 'inactive':
-    //         filteredExtensions = extensions.filter(({isActive}) => isActive === false)
-    //         break
-    // }
-
-    // updateExtensionContainerHTML(filteredExtensions)
-
-
-
 }
 
 
@@ -218,6 +191,3 @@ filterButtons.forEach(filterButton => {
     filterButton.addEventListener('click', filterExtensions)
 })
 
-document.addEventListener('click', () => {
-    console.log(extensions);
-})
