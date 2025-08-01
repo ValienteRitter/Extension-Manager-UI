@@ -130,6 +130,8 @@ function setToggleEventListener(extensions) {
 setToggleEventListener(extensions)
 
 function filterExtensions(e) {
+    filterButtons.forEach(filterButton => filterButton.classList.remove('highlight'))
+    e.target.classList.add('highlight')
     extensionContainer.innerHTML = ''
     let filteredExtensions =''
     switch(e.target.value) {
@@ -143,7 +145,7 @@ function filterExtensions(e) {
             filteredExtensions = extensions.filter(({isActive}) => isActive === false)
             break
     }
-        
+    
     filteredExtensions.forEach(({logo, name, description, isActive}) => {
         extensionContainer.innerHTML += isActive 
             ?    `<div class="extension-item">
