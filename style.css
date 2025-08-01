@@ -163,6 +163,7 @@ header > div > img {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .remove-btn {
@@ -170,4 +171,29 @@ header > div > img {
     border: 1px solid var(--Neutral-300);
     border-radius: 30px;
     padding: 10px;
+}
+
+.activate-toggle {
+    background-color: var(--Neutral-300);
+    width: 50px;
+    height: 25px;
+    border-radius: 30px;
+    border: none;
+}
+
+.circle {
+    height: 100%;
+    width: 25px;
+    border-radius: 100%;
+    background-color: var(--Neutral-0);
+    position: relative;
+    left: 0px;
+}
+
+.active {
+    background-color: var(--Red-400);
+}
+
+.active > .circle {
+    left: calc(100% - 25px);
 }
