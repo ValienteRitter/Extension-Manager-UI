@@ -95,6 +95,10 @@ header > div > img {
     text-align: center;
 }
 
+.highlight {
+    background-color: var(--Red-500);
+}
+
 @media(min-width: 870px) {
     .extension-list {
         flex-direction: row;
