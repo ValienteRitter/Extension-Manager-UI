@@ -109,6 +109,13 @@ header > div > img {
     margin-top: 15px;
 }
 
+@media(min-width: 1024px) {
+    .extension-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 .extension-item {
     background-color: var(--Neutral-0);
     padding: 1rem;
