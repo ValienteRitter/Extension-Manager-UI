@@ -73,43 +73,54 @@ const extensions = [
     }
 ]
 const extensionContainer = document.querySelector('.extension-container');
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+
 
 
 extensions.forEach(({logo, name, description, isActive}) => {
-    extensionContainer.innerHTML +=
-        `<div class="extension-item">
-            <div class="extension-info">
-                <img src="${logo}" alt="">
-                <div class="extension-info-text">
-                    <h1>${name}</h1>
-                    <p>${description}</p>
+    extensionContainer.innerHTML += isActive 
+        ?    `<div class="extension-item">
+                <div class="extension-info">
+                    <img src="${logo}" alt="">
+                    <div class="extension-info-text">
+                        <h1>${name}</h1>
+                        <p>${description}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="extension-btn-container">
-                <button class="remove-btn">Remove</button>
-                <button class="activate-toggle">
-                    <div class="circle"></div>
-                </button>
-            </div>
-        </div>` 
+                <div class="extension-btn-container">
+                    <button class="remove-btn">Remove</button>
+                    <button class="activate-toggle active">
+                        <div class="circle"></div>
+                    </button>
+                </div>
+            </div>`
+        :    `<div class="extension-item">
+                <div class="extension-info">
+                    <img src="${logo}" alt="">
+                    <div class="extension-info-text">
+                        <h1>${name}</h1>
+                        <p>${description}</p>
+                    </div>
+                </div>
+                <div class="extension-btn-container">
+                    <button class="remove-btn">Remove</button>
+                    <button class="activate-toggle">
+                        <div class="circle"></div>
+                    </button>
+                </div>
+            </div>`
         
 })
 
+const activateToggles = document.querySelectorAll('.activate-toggle');
 
 
-`<div class="extension-item">
-    <div class="extension-info">
-        <img src="assets/images/logo-devlens.svg" alt="">
-        <div class="extension-info-text">
-            <h1>DevLens</h1>
-            <p>Quickly inspect page layouts and visualize element boundaries</p>
-        </div>
-    </div>
-    <div class="extension-btn-container">
-        <button class="remove-btn">Remove</button>
-        <button></button>
-    </div>
-</div>`
 
+activateToggles.forEach(((toggle, index) => toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active')
+    extensions[index].isActive = !extensions[index].isActive
+    console.log(extensions[index])
+})))
 
 
