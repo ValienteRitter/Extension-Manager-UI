@@ -43,7 +43,7 @@ html, body {
 }
 }
 
-@media(min-width: 1024px) {
+@media(min-width: 870px) {
     .app-container {
         width: 80%;
     }
@@ -95,7 +95,7 @@ header > div > img {
     text-align: center;
 }
 
-@media(min-width: 1024px) {
+@media(min-width: 870px) {
     .extension-list {
         flex-direction: row;
         justify-content: space-between;
@@ -109,7 +109,14 @@ header > div > img {
     margin-top: 15px;
 }
 
-@media(min-width: 1024px) {
+@media(min-width: 870px) {
+    .extension-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1270px) {
     .extension-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -125,6 +132,7 @@ header > div > img {
     border: 1px solid var(--Neutral-300);
     border-radius: 30px;
     gap: 10px;
+    min-height: 14rem;
 }
 
 .extension-info {
