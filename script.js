@@ -72,11 +72,33 @@ let extensions = [
         "isActive": true
     }
 ]
+const HTML = document.querySelector('HTML');
 const extensionContainer = document.querySelector('.extension-container');
 const filterButtons = document.querySelectorAll('.filter-btn');
+const themeToggle = document.querySelector('.theme-toggle');
+const themeToggleImg = themeToggle.lastElementChild;
 let extensionItems
-
+let isDark = false
 let selectedFilter = 'all'
+
+function setTheme() {
+    switch(isDark) {
+        case false: 
+            themeToggleImg.src = 'assets/images/icon-sun.svg'
+            isDark = !isDark
+            HTML.classList.toggle('darkmode')
+            break
+        case true:
+            themeToggleImg.src = 'assets/images/icon-moon.svg'
+            isDark = !isDark
+            HTML.classList.toggle('darkmode')
+            break
+}}
+
+
+
+themeToggle.addEventListener('click', setTheme)
+
 
 
 function updateExtensionContainerHTML(extensions) {
