@@ -98,6 +98,10 @@ header > div > img {
 
 }
 
+.theme-toggle:hover {
+    border-color: var(--Red-700);
+}
+
 .extension-list {
     display: flex;
     flex-direction: column;
@@ -117,6 +121,10 @@ header > div > img {
     width: 6rem;
     height: 2rem;
     text-align: center;
+}
+
+.filter-btn:hover {
+    border-color: var(--Red-700);
 }
 
 .highlight {
@@ -201,6 +209,10 @@ header > div > img {
     padding: 10px;
 }
 
+.remove-btn:hover {
+    border-color: var(--Red-700)
+}
+
 .activate-toggle {
     background-color: var(--Neutral-300);
     width: 50px;
@@ -208,6 +220,7 @@ header > div > img {
     border-radius: 30px;
     border: none;
 }
+
 
 .circle {
     height: 100%;
